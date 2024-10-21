@@ -1,0 +1,17 @@
+.configurator {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+
+    background-color: #242424;
+
+    .canvas-box {
+        width: 100%;
+    }
+
+    .configurator-box {
+        min-width: 240px;
+        max-width: 320px;
+    }
+}
