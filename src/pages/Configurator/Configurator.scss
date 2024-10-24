@@ -1,17 +1,72 @@
 .configurator {
-    width: 100%;
-    max-width: 100%;
-    min-height: 100vh;
-    display: flex;
+  display: flex;
+  overflow: hidden;
+  min-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
 
-    background-color: #242424;
+  width: 100%;
+  max-width: 100%;
+
+  .canvas-box {
+    width: 100%;
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .config-section {
+    max-width: 360px;
+    min-width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    border-left: 1px solid #eee;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    padding: 32px;
+    margin-right: 32px;
+
+    z-index: 21;
+  }
+}
+
+@media (max-width: 860px) {
+  .configurator {
+    flex-direction: column;
 
     .canvas-box {
-        width: 100%;
+      flex-grow: 1;
+      width: 100%;
+      height: 100%; // This will ensure it expands to fill height
+      overflow: hidden;
+
+      canvas {
+        min-height: calc(100vh - 300px);
+      }
     }
 
-    .configurator-box {
-        min-width: 240px;
-        max-width: 320px;
+    .config-section {
+      width: 100%;
+      overflow-y: auto;
+
+      margin: 0;
+      padding: 0;
+
+      border-top: 1px solid #eeeeee;
+
+      .menu {
+        margin: 32px;
+      }
     }
+  }
 }
