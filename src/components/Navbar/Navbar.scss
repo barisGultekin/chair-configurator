@@ -1,3 +1,70 @@
 .navbar {
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #fff;
+
+  max-width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid #eeeeee;
+
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 30;
+
+  max-height: 80px;
+
+  a {
+    text-decoration: none;
+    color: #242424;
+    margin: 0;
+  }
+
+  .toggle {
+    display: none;
+
+    @media (max-width: 640px) {
+      display: block;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+
+    .logo {
+      height: 48px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 32px;
+
+      @media (max-width: 640px) {
+        display: none;
+      }
+
+      .link {
+        color: #888888;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  .contacts {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
 }
