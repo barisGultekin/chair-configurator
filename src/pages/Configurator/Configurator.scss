@@ -1,72 +1,57 @@
 .configurator {
   display: flex;
-  overflow: hidden;
-  min-height: calc(100vh - 100px);
-  max-height: calc(100vh - 100px);
-
-  width: 100%;
+  flex: 1;
   max-width: 100%;
+  max-height: calc(100vh - 82px);
 
-  .canvas-box {
+  .canvas-section {
     width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex: 1;
 
     canvas {
       width: 100%;
-      height: 100%;
+      min-height: 100%;
+      display: block;
     }
   }
 
-  .config-section {
-    max-width: 360px;
-    min-width: 300px;
-
+  .menu-section {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
 
-    border-left: 1px solid #eee;
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
+    width: 100%;
+    max-width: 400px;
     padding: 32px;
-    margin-right: 32px;
 
-    z-index: 21;
+    height: 100%;
+    max-height: calc(100vh - 160px);
+
+    overflow: hidden;
+
+    border-left: 1px solid #eeeeee;
+
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
-}
 
-@media (max-width: 860px) {
-  .configurator {
+  @media (max-width: 860px) {
     flex-direction: column;
 
-    .canvas-box {
-      flex-grow: 1;
-      width: 100%;
-      height: 100%; // This will ensure it expands to fill height
-      overflow: hidden;
-
-      canvas {
-        min-height: calc(100vh - 300px);
-      }
+    .canvas-section {
+      flex: 1; /* Allow it to grow and fill the remaining space */
     }
 
-    .config-section {
-      width: 100%;
-      overflow-y: auto;
+    .menu-section {
+      height: 256px; /* Fixed height */
+      min-width: 100%;
+      max-width: none;
+      padding: 16px;
+      box-sizing: border-box;
 
-      margin: 0;
-      padding: 0;
-
-      border-top: 1px solid #eeeeee;
-
-      .menu {
-        margin: 32px;
-      }
+      border-left: none;
     }
   }
 }
