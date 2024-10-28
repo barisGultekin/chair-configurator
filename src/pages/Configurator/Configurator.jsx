@@ -1,4 +1,4 @@
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import "./Configurator.scss";
@@ -7,12 +7,33 @@ import Chair from "../../components/Chair";
 import ConfiguratorMenu from "./ConfiguratorMenu";
 
 const Configurator = () => {
-  const canvasRef = useRef();
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 860);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="configurator">
-      <div className="canvas-box" ref={canvasRef}>
+      <div className="canvas-section">
         <Canvas
+          style={
+            isSmallScreen
+              ? { height: "none", minHeight: "100%" }
+              : { height: "none" }
+          }
           camera={{ position: [40, 40, 100] }}
           frameloop="demand"
         >
@@ -30,7 +51,7 @@ const Configurator = () => {
           </Suspense>
         </Canvas>
       </div>
-      <div className="config-section">
+      <div className="menu-section">
         <ConfiguratorMenu />
       </div>
     </div>
