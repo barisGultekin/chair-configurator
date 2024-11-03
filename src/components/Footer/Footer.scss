@@ -1,0 +1,14 @@
+.footer {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px 0;
+    border-top: 1px solid #eee;
+
+    p {
+        font-size: 1em;
+    }
+}
