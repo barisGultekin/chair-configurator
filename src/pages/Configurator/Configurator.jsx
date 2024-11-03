@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import "./Configurator.scss";
@@ -15,13 +15,10 @@ const Configurator = () => {
       setIsSmallScreen(window.innerWidth < 860);
     };
 
-    // Initial check
     handleResize();
 
-    // Listen for window resize events
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
