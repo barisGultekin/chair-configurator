@@ -1,5 +1,98 @@
 .home {
-    section {
-        height: 100vh;
+  padding: 0 4em;
+  overflow-x: hidden;
+
+  h1 {
+    font-size: 80px;
+
+    @media (max-width: 860px) {
+      font-size: 64px;
     }
+  }
+
+  p {
+    font-size: 24px;
+    color: #bbb;
+    margin-top: 16px;
+  }
+
+  .video-section {
+    width: 100vw;
+    height: 100vh;
+
+    video {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      z-index: 20;
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 21;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none; // Allow interaction with the video
+
+      .animation-text-area {
+        opacity: 0;
+        transform: translateY(-50px);
+        position: absolute;
+        padding: 0 6em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        @media (max-width: 860px) {
+          padding: 0 3em;
+        }
+
+        h1 {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .content-section {
+    .configure {
+      padding: 0 0 24vh 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5vh;
+
+      a {
+        all: unset;
+        color: #038aff;
+        font-weight: 600;
+        button {
+          all: unset;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 1.2em 2.4em;
+          background-color: #038aff30;
+          border-radius: 12px;
+        }
+
+        &:hover {
+          color: #fff;
+          button {
+            cursor: pointer;
+            background-color: #038aff;
+          }
+        }
+      }
+    }
+  }
 }
