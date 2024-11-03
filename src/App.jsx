@@ -1,5 +1,6 @@
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 import { CustomizationProvider } from "./contexts/Customization";
 
@@ -9,13 +10,41 @@ import Configurator from "./pages/Configurator/Configurator";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
+  const [isScrolledPastAnimation, setIsScrolledPastAnimation] = useState(false);
+  const contentSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsScrolledPastAnimation(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0,
+      }
+    );
+
+    if (contentSectionRef.current) {
+      observer.observe(contentSectionRef.current);
+    }
+
+    return () => {
+      if (contentSectionRef.current) {
+        observer.unobserve(contentSectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <CustomizationProvider>
       <Router>
         <div className="app">
-        <Navbar />
+          <Navbar isScrolledPastAnimation={isScrolledPastAnimation} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={<Home contentSectionRef={contentSectionRef} />}
+            />
             <Route path="/configurator" element={<Configurator />} />
           </Routes>
         </div>
