@@ -6,6 +6,7 @@ import { CustomizationProvider } from "./contexts/Customization";
 
 import Home from "./pages/Home/Home";
 import Configurator from "./pages/Configurator/Configurator";
+import Assets from "./pages/Assets/Assets";
 
 import Navbar from "./components/Navbar/Navbar";
 
@@ -46,6 +47,7 @@ function App() {
               element={<Home contentSectionRef={contentSectionRef} />}
             />
             <Route path="/configurator" element={<Configurator />} />
+            <Route path="/assets" element={<Assets />} />
           </Routes>
         </div>
       </Router>
