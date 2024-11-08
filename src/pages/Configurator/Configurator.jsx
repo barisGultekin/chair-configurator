@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from "react";
-import { OrbitControls, Stage } from "@react-three/drei";
+import { OrbitControls, Stage, Loader } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import "./Configurator.scss";
 
@@ -47,6 +47,7 @@ const Configurator = () => {
             />
           </Suspense>
         </Canvas>
+        <Loader />
       </div>
       <div className="menu-section">
         <ConfiguratorMenu />
