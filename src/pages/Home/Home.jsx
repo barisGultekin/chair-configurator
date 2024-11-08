@@ -1,7 +1,5 @@
-import { useRef, useEffect } from "react";
-
+import { useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,40 +9,36 @@ import Footer from "../../components/Footer/Footer";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = ({ contentSectionRef }) => {
-  const videoRef = useRef(null);
-  const videoSectionRef = useRef(null);
+  const imageSectionRef = useRef(null);
 
   const animationTextRef1 = useRef(null);
   const animationTextRef2 = useRef(null);
   const animationTextRef3 = useRef(null);
 
+  const [currentFrame, setCurrentFrame] = useState(0);
+
+  // Load the image sequence
+  const frameCount = 175; // Adjust based on your image count
+  const images = Array.from({ length: frameCount }, (_, i) =>
+    `${import.meta.env.BASE_URL}assets/frames/frame_${String(i + 1).padStart(3, "0")}.png`
+  );
+
   useEffect(() => {
-    const video = videoRef.current;
-
-    const videoDuration = 7; // Seconds
-    const totalFrames = 120; // 25 FPS
-    const frameDuration = videoDuration / totalFrames;
-
-    const startFrame = 0;
-    const endFrame = 120;
-    const usableFrames = endFrame - startFrame;
+    const totalFrames = images.length;
 
     const scrollTrigger = gsap.to(
       {},
       {
         scrollTrigger: {
-          trigger: videoSectionRef.current,
+          trigger: imageSectionRef.current,
           start: "top top",
-          end: "+=10000", // Adjust scroll distance for a smooth transition
-          scrub: 0.5,
+          end: "+=5000", // Adjust scroll distance as needed
+          scrub: 1,
           pin: true,
-          pinSpacing: true, // Set to true to maintain layout continuity
+          pinSpacing: true,
           onUpdate: (self) => {
-            const frame = startFrame + Math.floor(self.progress * usableFrames);
-
-            if (frame < endFrame) {
-              video.currentTime = frame * frameDuration;
-            }
+            const frame = Math.floor(self.progress * (totalFrames - 1));
+            setCurrentFrame(frame);
 
             // Animate text between specific frames
             if (frame >= 0 && frame <= 40) {
@@ -61,7 +55,7 @@ const Home = ({ contentSectionRef }) => {
               });
             }
 
-            if (frame >= 50 && frame <= 80) {
+            if (frame >= 50 && frame <= 110) {
               gsap.to(animationTextRef2.current, {
                 opacity: 1,
                 y: 0,
@@ -75,7 +69,7 @@ const Home = ({ contentSectionRef }) => {
               });
             }
 
-            if (frame >= 90 && frame <= 120) {
+            if (frame >= 120 && frame <= totalFrames) {
               gsap.to(animationTextRef3.current, {
                 opacity: 1,
                 y: 0,
@@ -88,37 +82,18 @@ const Home = ({ contentSectionRef }) => {
                 duration: 0.5,
               });
             }
-          },
-          onLeave: () => {
-            // Hide or fade out video section smoothly
-            gsap.to(videoSectionRef.current, { opacity: 0, duration: 0.5 });
-          },
-          onEnterBack: () => {
-            // Restore video section opacity when scrolling back
-            gsap.to(videoSectionRef.current, { opacity: 1, duration: 0.5 });
           },
         },
       }
     );
 
     return () => scrollTrigger.kill();
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="home">
-      <div
-        className="video-section"
-        ref={videoSectionRef}
-        style={{ opacity: 1 }}
-      >
-        <video
-          ref={videoRef}
-          src="/assets/animation.mp4"
-          muted
-          playsInline
-          preload="auto"
-          style={{ opacity: 1 }}
-        />
+      <div className="image-section" ref={imageSectionRef} style={{ opacity: 1 }}>
+        <img src={images[currentFrame]} alt="Animation frame" style={{ width: "100%" }} />
         <div className="text-overlay">
           <div className="animation-text-area" ref={animationTextRef1}>
             <h1>Mount Chair</h1>
@@ -137,7 +112,7 @@ const Home = ({ contentSectionRef }) => {
             <h1>Design it your way.</h1>
             <p>Create your tailor-made Mount Chair with our 3D configurator.</p>
           </div>
-          <a href="/configurator">
+          <a href="/chair-configurator/#/configurator">
             <button>Go to configurator</button>
           </a>
         </div>

@@ -1,5 +1,4 @@
 .home {
-  padding: 0 4em;
   overflow-x: hidden;
 
   h1 {
@@ -16,11 +15,11 @@
     margin-top: 16px;
   }
 
-  .video-section {
+  .image-section {
     width: 100vw;
     height: 100vh;
 
-    video {
+    img {
       width: 100vw;
       height: 100%;
       object-fit: cover;
@@ -68,6 +67,13 @@
       align-items: center;
       justify-content: center;
       gap: 5vh;
+
+      .header {
+        @media (max-width: 860px) {
+          padding: 0 3em;
+          text-align: center;
+        }
+      }
 
       a {
         all: unset;
