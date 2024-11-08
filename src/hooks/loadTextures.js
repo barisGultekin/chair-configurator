@@ -4,10 +4,10 @@ import * as THREE from "three";
 // Utility function to load brushed-steel textures
 export const useBrushedSteelTextures = () => {
   const brushedSteelTextureProps = useTexture({
-    map: "/textures/brushed-steel/metal_0026_color_2k.jpg",
-    normalMap: "/textures/brushed-steel/metal_0026_normal_opengl_2k.png",
-    roughnessMap: "/textures/brushed-steel/metal_0026_roughness_2k.jpg",
-    aoMap: "/textures/brushed-steel/metal_0026_ao_2k.jpg",
+    map: `${import.meta.env.BASE_URL}textures/brushed-steel/metal_0026_color_2k.jpg`,
+    normalMap: `${import.meta.env.BASE_URL}textures/brushed-steel/metal_0026_normal_opengl_2k.png`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/brushed-steel/metal_0026_roughness_2k.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/brushed-steel/metal_0026_ao_2k.jpg`,
   });
 
   const brushedSteelRepeater = 0.08;
@@ -16,26 +16,25 @@ export const useBrushedSteelTextures = () => {
   brushedSteelTextureProps.roughnessMap.repeat.set(brushedSteelRepeater, brushedSteelRepeater);
   brushedSteelTextureProps.aoMap.repeat.set(brushedSteelRepeater, brushedSteelRepeater);
 
-  // Set wrapping for all textures
   brushedSteelTextureProps.map.wrapS = brushedSteelTextureProps.map.wrapT = THREE.RepeatWrapping;
   brushedSteelTextureProps.normalMap.wrapS = brushedSteelTextureProps.normalMap.wrapT = THREE.RepeatWrapping;
   brushedSteelTextureProps.roughnessMap.wrapS = brushedSteelTextureProps.roughnessMap.wrapT = THREE.RepeatWrapping;
   brushedSteelTextureProps.aoMap.wrapS = brushedSteelTextureProps.aoMap.wrapT = THREE.RepeatWrapping;
 
-  // Return the textures along with metalness
   return {
     ...brushedSteelTextureProps,
-    metalness: 0.7,  // Set metalness to a high value, you can adjust as needed
-    roughness: 0.4,  // Adjust roughness if necessary
+    metalness: 0.7,
+    roughness: 0.4,
   };
 };
 
+// Utility function to load carbon textures
 export const useCarbonTextures = () => {
   const carbonTextureProps = useTexture({
-    map: "/textures/carbon-fiber/metal_0047_color_2k.jpg",
-    normalMap: "/textures/carbon-fiber/metal_0047_normal_opengl_2k.png",
-    roughnessMap: "/textures/carbon-fiber/metal_0047_roughness_2k.jpg",
-    aoMap: "/textures/carbon-fiber/metal_0047_ao_2k.jpg",
+    map: `${import.meta.env.BASE_URL}textures/carbon-fiber/metal_0047_color_2k.jpg`,
+    normalMap: `${import.meta.env.BASE_URL}textures/carbon-fiber/metal_0047_normal_opengl_2k.png`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/carbon-fiber/metal_0047_roughness_2k.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/carbon-fiber/metal_0047_ao_2k.jpg`,
   });
 
   const carbonRepeater = 0.1;
@@ -51,17 +50,17 @@ export const useCarbonTextures = () => {
 
   return {
     ...carbonTextureProps,
-    metalness: 0.9,  // Set metalness to a high value, you can adjust as needed
-    roughness: 0.5,  // Adjust roughness if necessary
+    metalness: 0.9,
+    roughness: 0.5,
   };
 };
 
 // Utility function to load fabric-mesh textures
 export const useFabricMeshTextures = () => {
   const fabricMeshTextureProps = useTexture({
-    normalMap: "/textures/fabric-mesh/Fabric_Mesh_001_normal.jpg",
-    roughnessMap: "/textures/fabric-mesh/Fabric_Mesh_001_roughness.jpg",
-    aoMap: "/textures/fabric-mesh/Fabric_Mesh_001_ambientOcclusion.jpg",
+    normalMap: `${import.meta.env.BASE_URL}textures/fabric-mesh/Fabric_Mesh_001_normal.jpg`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/fabric-mesh/Fabric_Mesh_001_roughness.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/fabric-mesh/Fabric_Mesh_001_ambientOcclusion.jpg`,
   });
 
   const fabricMeshRepeater = 0.015;
@@ -79,9 +78,9 @@ export const useFabricMeshTextures = () => {
 // Utility function to load fabric-seam textures
 export const useFabricSeamTextures = () => {
   const fabricSeamTextureProps = useTexture({
-    normalMap: "/textures/fabric-seam/Fabric_Knitted_004_normal.jpg",
-    roughnessMap: "/textures/fabric-seam/Fabric_Knitted_004_roughness.jpg",
-    aoMap: "/textures/fabric-seam/Fabric_Knitted_004_ambientOcclusion.jpg",
+    normalMap: `${import.meta.env.BASE_URL}textures/fabric-seam/Fabric_Knitted_004_normal.jpg`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/fabric-seam/Fabric_Knitted_004_roughness.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/fabric-seam/Fabric_Knitted_004_ambientOcclusion.jpg`,
   });
 
   const fabricSeamRepeater = 0.02;
@@ -99,9 +98,9 @@ export const useFabricSeamTextures = () => {
 // Utility function to load alcantara textures
 export const useAlcantaraTextures = () => {
   const alcantaraTextureProps = useTexture({
-    normalMap: "/textures/alcantara/Fabric_Alcantara_001_normal.jpg",
-    roughnessMap: "/textures/alcantara/Fabric_Alcantara_001_roughness.jpg",
-    aoMap: "/textures/alcantara/Fabric_Alcantara_001_ambientOcclusion.jpg",
+    normalMap: `${import.meta.env.BASE_URL}textures/alcantara/Fabric_Alcantara_001_normal.jpg`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/alcantara/Fabric_Alcantara_001_roughness.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/alcantara/Fabric_Alcantara_001_ambientOcclusion.jpg`,
   });
 
   const alcantaraRepeater = 0.02;
@@ -119,9 +118,9 @@ export const useAlcantaraTextures = () => {
 // Utility function to load leather textures
 export const useLeatherTextures = () => {
   const leatherTextureProps = useTexture({
-    normalMap: "/textures/leather/Leather_Padded_003_normal.png",
-    roughnessMap: "/textures/leather/Leather_Padded_003_roughness.png",
-    aoMap: "/textures/leather/Leather_Padded_003_ambientOcclusion.png",
+    normalMap: `${import.meta.env.BASE_URL}textures/leather/Leather_Padded_003_normal.png`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/leather/Leather_Padded_003_roughness.png`,
+    aoMap: `${import.meta.env.BASE_URL}textures/leather/Leather_Padded_003_ambientOcclusion.png`,
   });
 
   const leatherRepeater = 0.08;
@@ -139,9 +138,9 @@ export const useLeatherTextures = () => {
 // Utility function to load plastic textures
 export const usePlasticTextures = () => {
   const plasticTextureProps = useTexture({
-    normalMap: "/textures/plastic/Plastic_Rough_001_normal.jpg",
-    roughnessMap: "/textures/plastic/Plastic_Rough_001_roughness.jpg",
-    aoMap: "/textures/plastic/Plastic_Rough_001_ambientOcclusion.jpg",
+    normalMap: `${import.meta.env.BASE_URL}textures/plastic/Plastic_Rough_001_normal.jpg`,
+    roughnessMap: `${import.meta.env.BASE_URL}textures/plastic/Plastic_Rough_001_roughness.jpg`,
+    aoMap: `${import.meta.env.BASE_URL}textures/plastic/Plastic_Rough_001_ambientOcclusion.jpg`,
   });
 
   const plasticRepeater = 0.1;
