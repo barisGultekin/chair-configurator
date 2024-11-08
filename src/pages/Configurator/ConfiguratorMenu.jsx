@@ -258,7 +258,7 @@ const ConfiguratorMenu = () => {
                   >
                     <div className="img-select-indicator">
                       <div className="img-select-dot">
-                        <img src="/assets/aluminum.webp" alt="Aluminum" />
+                        <img src={`${import.meta.env.BASE_URL}assets/aluminum.webp`} alt="Aluminum" />
                       </div>
                     </div>
                     <div className="img-select-label">Aluminum</div>
@@ -276,7 +276,7 @@ const ConfiguratorMenu = () => {
                     <div className="img-select-indicator">
                       <div className="img-select-dot">
                         <img
-                          src="/assets/carbon-fiber.jpg"
+                          src={`${import.meta.env.BASE_URL}assets/carbon-fiber.jpg`}
                           alt="Carbon Fiber"
                         />
                       </div>

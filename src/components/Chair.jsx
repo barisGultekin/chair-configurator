@@ -20,7 +20,7 @@ const Chair = (props) => {
   
   const { cushionMaterial, cushionColor, armrestType, bodyTexture } = state;
 
-  const { nodes } = useGLTF("/models/chair.gltf");
+  const { nodes } = useGLTF(`${import.meta.env.BASE_URL}models/chair.gltf`);
 
   // Load textures for each material
   const alcantaraTextureProps = useAlcantaraTextures();
@@ -154,6 +154,6 @@ const Chair = (props) => {
   );
 };
 
-useGLTF.preload("/models/chair.gltf");
+useGLTF.preload(`${import.meta.env.BASE_URL}models/chair.gltf`);
 
 export default Chair;
