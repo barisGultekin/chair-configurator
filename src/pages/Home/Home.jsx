@@ -20,9 +20,8 @@ const Home = ({ contentSectionRef }) => {
 
   useEffect(() => {
     // Check screen width and select appropriate video
-    const mobileVideo = `${import.meta.env.BASE_URL}assets/output-video.webm`;
-    const desktopVideo = `${import.meta.env.BASE_URL}assets/animation.mp4`;
-    setVideoSrc(window.innerWidth < 768 ? mobileVideo : desktopVideo);
+    const cdnVideo = "assets/animationOpt.mp4"; // Replace with your CDN MP4 URL
+    setVideoSrc(cdnVideo);
 
     const video = videoRef.current;
     const videoDuration = 7;
@@ -44,21 +43,45 @@ const Home = ({ contentSectionRef }) => {
             video.currentTime = frame * frameDuration;
 
             if (frame >= 0 && frame <= 40) {
-              gsap.to(animationTextRef1.current, { opacity: 1, y: 0, duration: 0.5 });
+              gsap.to(animationTextRef1.current, {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+              });
             } else {
-              gsap.to(animationTextRef1.current, { opacity: 0, y: -50, duration: 0.5 });
+              gsap.to(animationTextRef1.current, {
+                opacity: 0,
+                y: -50,
+                duration: 0.5,
+              });
             }
 
             if (frame >= 50 && frame <= 110) {
-              gsap.to(animationTextRef2.current, { opacity: 1, y: 0, duration: 0.5 });
+              gsap.to(animationTextRef2.current, {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+              });
             } else {
-              gsap.to(animationTextRef2.current, { opacity: 0, y: -50, duration: 0.5 });
+              gsap.to(animationTextRef2.current, {
+                opacity: 0,
+                y: -50,
+                duration: 0.5,
+              });
             }
 
             if (frame >= 120 && frame <= totalFrames) {
-              gsap.to(animationTextRef3.current, { opacity: 1, y: 0, duration: 0.5 });
+              gsap.to(animationTextRef3.current, {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+              });
             } else {
-              gsap.to(animationTextRef3.current, { opacity: 0, y: -50, duration: 0.5 });
+              gsap.to(animationTextRef3.current, {
+                opacity: 0,
+                y: -50,
+                duration: 0.5,
+              });
             }
           },
         },
@@ -70,7 +93,11 @@ const Home = ({ contentSectionRef }) => {
 
   return (
     <div className="home">
-      <div className="image-section" ref={imageSectionRef} style={{ opacity: 1 }}>
+      <div
+        className="image-section"
+        ref={imageSectionRef}
+        style={{ opacity: 1 }}
+      >
         <video
           ref={videoRef}
           src={videoSrc}
