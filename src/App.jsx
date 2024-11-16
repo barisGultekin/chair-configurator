@@ -21,7 +21,11 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+try {
+  initializeApp(firebaseConfig);
+} catch (error) {
+  console.error("Firebase initialization error:", error);
+}
 
 function App() {
   const [isScrolledPastAnimation, setIsScrolledPastAnimation] = useState(false);
