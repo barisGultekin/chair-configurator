@@ -19,9 +19,8 @@ const Home = ({ contentSectionRef }) => {
   const [videoSrc, setVideoSrc] = useState("");
 
   useEffect(() => {
-    // Check screen width and select appropriate video
-    const cdnVideo = "assets/animationOpt.mp4"; // Replace with your CDN MP4 URL
-    setVideoSrc(cdnVideo);
+    const videoUrl = "assets/animationOpt.mp4";
+    setVideoSrc(videoUrl);
 
     const video = videoRef.current;
     const videoDuration = 7;
@@ -93,6 +92,33 @@ const Home = ({ contentSectionRef }) => {
 
   return (
     <div className="home">
+      <div className="mobile-image-section">
+        <div className="intro">
+          <div className="header">
+            <div className="text">
+              <h1>Mount Chair</h1>
+              <p>A regular chair designed in Fusion 360</p>
+            </div>
+
+            <a href="/chair-configurator/#/configurator" className="button">
+              <button>Build Yours</button>
+            </a>
+          </div>
+          <img src="assets/home/chair-main.webp" alt="Chair Main Pic" />
+        </div>
+        <div className="home-section a">
+          <div className="header">
+            <h1>Chair at its peak.</h1>
+          </div>
+        </div>
+        <div className="home-section b">
+          <div className="header">
+            <h1>Comfort in details.</h1>
+            <p>Every little thing matters for percect focus.</p>
+          </div>
+          <img src="assets/home/armrest.webp" alt="Armrest" />
+        </div>
+      </div>
       <div
         className="image-section"
         ref={imageSectionRef}
@@ -110,6 +136,7 @@ const Home = ({ contentSectionRef }) => {
         <div className="text-overlay">
           <div className="animation-text-area" ref={animationTextRef1}>
             <h1>Mount Chair</h1>
+            <p>A regular chair designed in Fusion 360</p>
           </div>
           <div className="animation-text-area" ref={animationTextRef2}>
             <h1>Chair at its peak.</h1>
@@ -125,7 +152,7 @@ const Home = ({ contentSectionRef }) => {
             <h1>Design it your way.</h1>
             <p>Create your tailor-made Mount Chair with our 3D configurator.</p>
           </div>
-          <a href="/chair-configurator/#/configurator">
+          <a href="/chair-configurator/#/configurator" className="button">
             <button>Go to configurator</button>
           </a>
         </div>
