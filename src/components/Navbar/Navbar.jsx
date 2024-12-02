@@ -59,7 +59,7 @@ const Navbar = ({ isScrolledPastAnimation }) => {
     >
       <div className="header">
         <a
-          href="/chair-configurator/"
+          href="/"
           className="logo"
           onClick={handleCloseMenu}
         >
@@ -77,19 +77,19 @@ const Navbar = ({ isScrolledPastAnimation }) => {
 
         <div className="links">
           <a
-            href="/chair-configurator/"
+            href="/"
             className={`link ${isActive("/") ? "active-link" : ""}`}
           >
             Home
           </a>
           <a
-            href="/chair-configurator/#/configurator"
+            href="/#/configurator"
             className={`link ${isActive("/configurator") ? "active-link" : ""}`}
           >
             Configurator
           </a>
           <a
-            href="/chair-configurator/#/assets"
+            href="/#/assets"
             className={`link ${isActive("/assets") ? "active-link" : ""}`}
           >
             Assets
@@ -131,21 +131,21 @@ const Navbar = ({ isScrolledPastAnimation }) => {
       {menuOpen && (
         <div className={`menu ${closing ? "fade-out" : ""}`} ref={menuRef}>
           <a
-            href="/chair-configurator/"
+            href="/"
             className={`menu-item ${isActive("/") ? "active-link" : ""}`}
             onClick={handleCloseMenu}
           >
             Home
           </a>
           <a
-            href="/chair-configurator/#/configurator"
+            href="/#/configurator"
             className={`menu-item ${isActive("/configurator") ? "active-link" : ""}`}
             onClick={handleCloseMenu}
           >
             Configurator
           </a>
           <a
-            href="/chair-configurator/#/assets"
+            href="/#/assets"
             className={`menu-item ${isActive("/assets") ? "active-link" : ""}`}
             onClick={handleCloseMenu}
           >

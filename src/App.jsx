@@ -32,6 +32,8 @@ function App() {
   const contentSectionRef = useRef(null);
 
   useEffect(() => {
+    const targetElement = contentSectionRef.current;
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsScrolledPastAnimation(entry.isIntersecting);
@@ -41,14 +43,14 @@ function App() {
         threshold: 0,
       }
     );
-
-    if (contentSectionRef.current) {
-      observer.observe(contentSectionRef.current);
+  
+    if (targetElement) {
+      observer.observe(targetElement);
     }
-
+  
     return () => {
-      if (contentSectionRef.current) {
-        observer.unobserve(contentSectionRef.current);
+      if (targetElement) {
+        observer.unobserve(targetElement);
       }
     };
   }, []);
