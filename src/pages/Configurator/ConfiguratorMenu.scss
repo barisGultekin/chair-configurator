@@ -6,7 +6,6 @@
 
   padding: 16px;
 
-
   overflow-y: auto;
 
   .menu {
@@ -134,7 +133,6 @@
         width: 100%;
         overflow-x: auto;
         max-width: 100%;
-        overflow-x: auto;
 
         padding-bottom: 10px;
 
@@ -220,6 +218,7 @@
         min-width: 36px;
         min-height: 36px;
         border-radius: 100px;
+        border: 1px solid #acacac;
       }
 
       .color-select-label {
