@@ -8,9 +8,22 @@ import "./Navbar.scss";
 const Navbar = ({ isScrolledPastAnimation }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // New state for mobile detection
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const menuRef = useRef(null);
+
+  // Handle window resize to detect mobile devices
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 860);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleMenuToggle = () => {
     if (menuOpen) {
@@ -54,7 +67,7 @@ const Navbar = ({ isScrolledPastAnimation }) => {
   return (
     <div
       className={`navbar ${
-        isScrolledPastAnimation || !isHomePage ? "default" : "dark"
+        isMobile || isScrolledPastAnimation || !isHomePage ? "default" : "dark"
       }`}
     >
       <div className="header">
@@ -122,7 +135,7 @@ const Navbar = ({ isScrolledPastAnimation }) => {
 
       <div
         className={`toggle ${
-          isScrolledPastAnimation || !isHomePage ? "default" : "dark"
+          isMobile || isScrolledPastAnimation || !isHomePage ? "default" : "dark"
         }`}
       >
         <Hamburger toggled={menuOpen} toggle={handleMenuToggle} />
