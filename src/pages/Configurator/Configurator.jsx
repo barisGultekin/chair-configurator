@@ -1,13 +1,22 @@
 import { Suspense, useEffect, useState } from "react";
-import { OrbitControls, Stage } from "@react-three/drei";
+import { OrbitControls, Stage, useProgress, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import "./Configurator.scss";
 
 import Chair from "../../components/Chair";
 import ConfiguratorMenu from "./ConfiguratorMenu";
 
-const Configurator = () => {
+const Loader = () => {
+  const { active, progress } = useProgress();
+  return active ? (
+    <div className="loader">
+      <div className="loader-animation"></div>
+      <p>Loading... {Math.round(progress)}%</p>
+    </div>
+  ) : null;
+};
 
+const Configurator = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +33,7 @@ const Configurator = () => {
 
   return (
     <div className="configurator">
-      <div className="canvas-section">
+      <div className="canvas-section" style={{ position: "relative" }}>
         <Canvas
           style={
             isSmallScreen
@@ -34,7 +43,13 @@ const Configurator = () => {
           camera={{ position: [40, 40, 100] }}
           frameloop="demand"
         >
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={
+              <Html>
+                <Loader />
+              </Html>
+            }
+          >
             <Stage preset={"soft"} intensity={0} shadows="contact">
               <Chair />
             </Stage>
@@ -47,7 +62,6 @@ const Configurator = () => {
             />
           </Suspense>
         </Canvas>
-
       </div>
       <div className="menu-section">
         <ConfiguratorMenu />
