@@ -13,19 +13,83 @@ const Assets = () => {
         <div className="assets-list">
           <div className="asset-section">
             <h3>Chair Model</h3>
-            <a href={`${import.meta.env.BASE_URL}assets/models/chair.gltf`} download className="download-button">
+            <a
+              href={`${import.meta.env.BASE_URL}assets/models/chair.gltf`}
+              download
+              className="download-button"
+            >
               Download GLTF
+            </a>
+            <a
+              href={`${import.meta.env.BASE_URL}assets/models/chair.obj`}
+              download
+              className="download-button"
+            >
+              Download OBJ
             </a>
           </div>
           <div className="asset-section">
             <h3>Textures</h3>
             <div className="asset-subsection">
               <p className="subsection-title">CUSHION TEXTURES</p>
-              <a href={`${import.meta.env.BASE_URL}assets/textures/downloads/alcantara.zip`}  download className="download-button">
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/fabric-seam.zip`}
+                download
+                className="download-button"
+              >
+                Download Fabric
+              </a>
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/fabric-mesh.zip`}
+                download
+                className="download-button"
+              >
+                Download Meshed Fabric
+              </a>
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/alcantara.zip`}
+                download
+                className="download-button"
+              >
                 Download Alcantara
               </a>
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/leather.zip`}
+                download
+                className="download-button"
+              >
+                Download Leather
+              </a>
             </div>
-            <div className="asset-subsection">Structure Textures</div>
+            <div className="asset-subsection">
+              <p className="subsection-title">STRUCTURE TEXTURES</p>
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/aluminum.zip`}
+                download
+                className="download-button"
+              >
+                Download Aluminum
+              </a>
+              <a
+                href={`${
+                  import.meta.env.BASE_URL
+                }assets/textures/downloads/carbon-fiber.zip`}
+                download
+                className="download-button"
+              >
+                Download Carbon Fiber
+              </a>
+            </div>
           </div>
         </div>
       </div>
