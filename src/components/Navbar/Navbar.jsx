@@ -126,7 +126,7 @@ const Navbar = ({ isScrolledPastAnimation }) => {
         </a>
         <a
           target="_blank"
-          href="https://barisgultekin.com/#/projects/ardeo"
+          href="https://barisgultekin.com/#/projects/chair-configurator"
           className="case-study"
         >
           Case Study
@@ -179,7 +179,7 @@ const Navbar = ({ isScrolledPastAnimation }) => {
           </a>
           <a
             target="_blank"
-            href="https://barisgultekin.com/#/projects/ardeo"
+            href="https://barisgultekin.com/#/projects/chair-configurator"
             className="case-study"
           >
             Case Study
