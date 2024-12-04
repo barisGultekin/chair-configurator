@@ -114,7 +114,7 @@ const Home = ({ contentSectionRef }) => {
         <div className="home-section b">
           <div className="header">
             <h1>Comfort in details.</h1>
-            <p>Every little thing matters for percect focus.</p>
+            <p>Every little thing matters for perfect focus.</p>
           </div>
           <img src="assets/home/armrest.webp" alt="Armrest" />
         </div>
