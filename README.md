@@ -7,14 +7,14 @@ An interactive 3D chair customization tool built using modern web technologies. 
 ## Features
 
 - **Dynamic 3D Product Customization**:
-  - Change materials (fabric, leather, etc.) and colors for the chair.
+  - Change materials and colors for the chair.
   - Real-time updates with React-Three-Fiber.
 - **Smooth Animations**:
   - GSAP for scroll-based animations and transitions.
 - **Optimized Performance**:
   - Built with Vite for fast development and optimized production builds.
 - **Responsive Design**:
-  - Ensures a seamless experience across devices.
+  - A seamless experience across devices.
 
 ---
 
